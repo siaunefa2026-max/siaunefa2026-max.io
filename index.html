@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIA - Gestión Académica</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+
+    <div id="auth-container" class="container fade-in">
+        <div class="auth-card">
+            <div class="header-blue">
+                <h1>S.I.A.</h1>
+                <p>Sistema Integral Académico</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <span class="material-icons">person</span>
+                    <input type="text" id="login-cedula" placeholder="Cédula" required>
+                </div>
+                <div class="input-group">
+                    <span class="material-icons">lock</span>
+                    <input type="password" id="login-pass" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+                <p class="switch-text">¿No tienes cuenta? <a href="#" id="go-to-register">Regístrate aquí</a></p>
+            </form>
+
+            <form id="register-form" style="display: none;">
+                <div class="input-group">
+                    <span class="material-icons">badge</span>
+                    <input type="text" id="reg-nombre" placeholder="Nombre Completo" required>
+                </div>
+                <div class="input-group">
+                    <span class="material-icons">person</span>
+                    <input type="text" id="reg-cedula" placeholder="Cédula" required>
+                </div>
+                <div class="input-group">
+                    <span class="material-icons">school</span>
+                    <select id="reg-carrera" required>
+                        <option value="" disabled selected>Seleccione Carrera</option>
+                        <option value="SISTEMAS">Ingeniería en Sistemas</option>
+                        <option value="CIVIL">Ingeniería Civil</option>
+                        <option value="AGROINDUSTRIAL">Ingeniería Agroindustrial</option>
+                        <option value="TSU_SISTEMAS">TSU Análisis de y Diseño de Sistemas</option>
+                        <option value="ENFERMERIA">TSU Enfermería</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="material-icons">lock</span>
+                    <input type="password" id="reg-pass" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn-secondary">Registrarse</button>
+                <p class="switch-text">¿Ya tienes cuenta? <a href="#" id="go-to-login">Ingresa aquí</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <nav class="navbar">
+            <div class="nav-brand">SIA Web</div>
+            <div class="nav-user">
+                <span id="user-name-display">Usuario</span>
+                <button onclick="logout()" class="btn-small"><span class="material-icons">logout</span></button>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <div class="toolbar">
+                <h2>Pensum de Estudios</h2>
+                <div class="actions">
+                    <button onclick="generarSugerencia()" class="btn-action">
+                        <span class="material-icons">lightbulb</span> Sugerencia
+                    </button>
+                    
+                    <button onclick="generarPDFRecomendacion()" class="btn-action">
+                        <span class="material-icons">picture_as_pdf</span> Sugerencia
+                    </button>
+                    <button onclick="generarPDF()" class="btn-action">
+                        <span class="material-icons">picture_as_pdf</span> Materias Aprobadas
+                    </button>
+                </div>
+            </div>
+
+            <div id="semestres-container"></div>
+        </div>
+    </div>
+
+    <script src="supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

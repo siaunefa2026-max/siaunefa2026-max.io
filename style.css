@@ -1,0 +1,150 @@
+:root {
+    --primary: #1A237E;
+    --secondary: #0D47A1;
+    --accent: #E8EAF6;
+    --text: #333;
+    --white: #ffffff;
+    --success: #4CAF50;
+    --danger: #F44336;
+    --warning: #FF9800;
+}
+
+body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f8; margin: 0; padding: 0; color: var(--text); }
+
+/* Auth Styles */
+.container { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.auth-card { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+.header-blue { background: var(--primary); color: white; padding: 1.5rem; margin: -2rem -2rem 2rem -2rem; border-radius: 12px 12px 0 0; }
+.input-group { position: relative; margin-bottom: 1rem; }
+.input-group .material-icons { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #777; }
+input, select { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+button { width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: 0.3s; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--secondary); }
+.btn-secondary { background: var(--secondary); color: white; }
+.switch-text { font-size: 0.9rem; margin-top: 1rem; }
+.switch-text a { color: var(--primary); text-decoration: none; }
+
+/* Dashboard Styles */
+.hidden { display: none !important; }
+.navbar { background: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.nav-brand { font-size: 1.5rem; font-weight: bold; }
+.btn-small { width: auto; background: transparent; color: white; padding: 5px; }
+
+.main-content { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 10px;}
+.btn-action { width: auto; padding: 10px 20px; display: flex; align-items: center; gap: 8px; background: var(--white); color: var(--primary); border: 1px solid var(--primary); }
+.btn-action:hover { background: var(--primary); color: white; }
+
+/* Grid de Materias */
+.semestre-block { margin-bottom: 2rem; }
+.semestre-title { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+.materia-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+
+.materia-card { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: relative; border-left: 5px solid #ccc; transition: 0.3s; }
+.materia-card h4 { margin: 0 0 5px 0; font-size: 1rem; }
+.materia-info { font-size: 0.85rem; color: #666; display: flex; justify-content: space-between; margin-bottom: 10px; }
+
+/* Estados de Materia */
+.materia-card.aprobado { border-left-color: var(--success); background-color: #f1f8e9; }
+.materia-card.reprobado { border-left-color: var(--danger); background-color: #ffebee; }
+.materia-card.bloqueada { opacity: 0.6; pointer-events: none; background-color: #eeeeee; border-left-color: #999; }
+
+.status-select { width: 100%; padding: 5px; margin-top: 5px; font-size: 0.9rem; padding-left: 5px; }
+
+/* Color para materias de arrastre (No cursadas de semestres anteriores) */
+.materia-card.arrastre {
+    border-left-color: #FFEB3B; /* Amarillo */
+    background-color: #FFFDE7;
+}
+
+/* Color para materias reprobadas */
+.materia-card.reprobado {
+    border-left-color: #F44336; /* Rojo */
+    background-color: #FFEBEE;
+}
+
+.electiva-selector {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    background-color: #e3f2fd;
+}
+/* Configuración base: 1 columna para móviles */
+.materia-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+    padding: 10px;
+}
+
+/* Tablets (Ancho mayor a 768px): 2 columnas */
+@media (min-width: 768px) {
+    .materia-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .main-content {
+        padding: 2rem;
+    }
+}
+
+/* Laptops/Desktop (Ancho mayor a 1024px): 3 columnas */
+@media (min-width: 1024px) {
+    .materia-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Ajustes para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+/* Ajustes para la zona de títulos y botones */
+.toolbar {
+    display: flex;
+    flex-direction: column; /* Apilados en móvil */
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos botones por fila en móvil */
+    gap: 8px;
+}
+
+@media (min-width: 768px) {
+    .toolbar {
+        flex-direction: row; /* En línea para pantallas grandes */
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .actions {
+        display: flex;
+        grid-template-columns: none;
+    }
+}
+
+.auth-card {
+    width: 90%; /* Ocupa casi todo el ancho en móvil */
+    max-width: 400px; /* Pero no más de 400px en PC */
+    margin: 20px auto;
+}
+
+/* Evitar que el contenedor de auth se desborde */
+.container {
+    padding: 1rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
