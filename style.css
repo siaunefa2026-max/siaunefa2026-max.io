@@ -1,0 +1,101 @@
+/* Variables de color basadas en tu tema de Flutter */
+:root {
+    --unefa-dark: #1A237E;
+    --unefa-blue: #0D47A1;
+    --aprobado: #4CAF50;
+    --reprobado: #F44336;
+    --pendiente: #757575;
+    --bloqueado: #bdbdbd;
+    --bg: #f5f7fa;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    color: #333;
+    padding-bottom: 80px; /* Espacio para el botón flotante */
+}
+
+header {
+    background: var(--unefa-dark);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header img { margin-bottom: 10px; }
+
+/* Contenedores de Semestre */
+.semestre-bloque {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.semestre-bloque h3 {
+    color: var(--unefa-dark);
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Tarjetas de Materia */
+.materia-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 6px solid var(--pendiente);
+    cursor: pointer;
+}
+
+.materia-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.materia-card .info { display: flex; flex-direction: column; }
+.materia-card .cod { font-size: 0.75rem; color: #777; font-weight: bold; }
+.materia-card .nom { font-size: 1rem; font-weight: 600; color: #222; }
+
+/* Estados Especiales */
+.materia-card.aprobado { border-left-color: var(--aprobado); background: #f1f8e9; }
+.materia-card.reprobado { border-left-color: var(--reprobado); background: #ffebee; }
+.materia-card.bloqueada { 
+    border-left-color: var(--bloqueado); 
+    background: #eeeeee; 
+    opacity: 0.7; 
+    cursor: not-allowed; 
+}
+
+/* Botón Flotante (FAB) */
+.fab-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+.btn-fab {
+    background: var(--unefa-dark);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.4);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-fab:hover { background: var(--unefa-blue); }
