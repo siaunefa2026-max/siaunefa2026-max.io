@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNEFA - Guía Académica</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Logo_unefa.png" alt="Logo" width="50">
+        <h1>Control de Estudios UNEFA</h1>
+    </header>
+
+    <main id="app-container">
+        <div id="loading">Cargando materias...</div>
+    </main>
+
+    <div class="fab-container">
+        <button onclick="generarRecordPDF()" class="btn-fab">📄 Récord</button>
+    </div>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/pdf.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
