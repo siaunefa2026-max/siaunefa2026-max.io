@@ -45,6 +45,9 @@ async function login(e) {
         if (error || !data) throw new Error("Credenciales inválidas");
 
         currentUser = data;
+
+        localStorage.setItem('sia_user', JSON.stringify(data)); 
+        
         loadDashboard();
     } catch (err) {
         Swal.fire('Error', err.message, 'error');
@@ -92,17 +95,25 @@ async function register(e) {
 }
 
 function checkSession() {
-    // Implementar persistencia si se desea (localStorage)
-    // Por ahora reinicia al recargar
+    const savedUser = localStorage.getItem('sia_user');
+    if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        loadDashboard(); // Salta directamente al panel
+    }
 }
 
 function logout() {
     currentUser = null;
+    
+    localStorage.removeItem('sia_user'); 
+    
     document.getElementById('dashboard').classList.add('hidden');
     document.getElementById('auth-container').classList.remove('hidden');
-    // Limpiar datos
+    
+    // Limpiar datos de estado
     materiasData = [];
     historialData = [];
+    eleccionesData = [];
 }
 
 // -----------------------------------------------------------------------------
