@@ -148,3 +148,28 @@ button { width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: p
     align-items: center;
     justify-content: center;
 }
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Distribuye logos a los lados del texto */
+    width: 100%;
+}
+
+.header-logo {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+.header-text {
+    text-align: center;
+    flex: 1;
+}
+
+/* Ajuste opcional para móviles */
+@media (max-width: 480px) {
+    .header-logo {
+        width: 45px;
+    }
+}
